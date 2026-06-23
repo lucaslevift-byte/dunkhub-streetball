@@ -1,0 +1,111 @@
+:root {
+    --laranja-bola: #ff6600;
+}
+
+html {
+    font-size: 16px; 
+    transition: font-size 0.2s ease;
+}
+
+body.theme-dark {
+    background-color: #121212;
+    color: #ffffff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.theme-dark .card-quadra, 
+body.theme-dark .card-painel, 
+body.theme-dark .card-lenda {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    color: #ffffff;
+}
+
+body.theme-dark .navbar {
+    background-color: #000000;
+}
+
+body.theme-light {
+    background-color: #f4f4f4;
+    color: #121212;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.theme-light .text-white,
+body.theme-light .txt-dinamico,
+body.theme-light h1,
+body.theme-light h2,
+body.theme-light h3,
+body.theme-light p {
+    color: #121212 !important;
+}
+
+body.theme-light .card-quadra, 
+body.theme-light .card-painel, 
+body.theme-light .card-lenda {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    color: #121212;
+}
+
+body.theme-light .navbar {
+    background-color: #e0e0e0;
+}
+
+body.theme-light .nav-link {
+    color: #121212 !important;
+}
+
+.font-street {
+    font-family: 'Permanent Marker', cursive;
+}
+
+.font-painel {
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.font-bloco {
+    font-family: 'Rubik Mono One', sans-serif;
+}
+
+.page-view {
+    display: none;
+}
+
+.page-view.active {
+    display: block;
+}
+
+.btn-orange {
+    background-color: var(--laranja-bola);
+    color: #000;
+    border: none;
+}
+
+.btn-orange:hover {
+    background-color: #e05500;
+    color: #fff;
+}
+
+.scoreboard {
+    background-color: #050505;
+    border: 3px solid #333;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.led-tempo {
+    font-size: 3rem;
+    color: #ff3333;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.led-pts {
+    font-size: 4rem;
+    color: #ffcc00;
+}
+
+.nav-link.ativo {
+    color: var(--laranja-bola) !important;
+    border-bottom: 2px solid var(--laranja-bola);
+}

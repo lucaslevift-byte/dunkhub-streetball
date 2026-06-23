@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DunkHub - Arena Streetball</title>
+    <link rel="icon" href="icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Rubik+Mono+One&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-dark">
+
+    <a class="visually-hidden-focusable bg-dark text-white p-2 position-absolute" href="#conteudo">Pular para o conteúdo principal</a>
+
+    <div class="accessibility-bar bg-black text-end px-3 py-2 border-bottom border-secondary">
+        <div class="soundtrack-widget d-inline-block float-start text-white font-painel small" id="music-player">
+            <span class="text-warning">📻 BEATS:</span> <span id="current-track">Off</span>
+            <button class="btn btn-xs btn-outline-warning ms-2 py-0" style="font-size:10px;" onclick="toggleMusic()">PLAY/PAUSE</button>
+        </div>
+        <button class="btn btn-sm btn-outline-light me-1" onclick="alterarFonte(1)" aria-label="Aumentar tamanho do texto">A+</button>
+        <button class="btn btn-sm btn-outline-light me-3" onclick="alterarFonte(-1)" aria-label="Diminuir tamanho do texto">A-</button>
+        <button class="btn btn-sm btn-orange text-black font-painel fw-bold" onclick="toggleContrast()" id="btn-contraste">MODO CLARO</button>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand font-street fs-2 text-white" href="#" onclick="navegar(event, 'home')">🏀 DUNKHUB</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Alternar menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="menu">
+                <div class="navbar-nav font-painel fs-5 align-items-center">
+                    <a class="nav-link px-3 text-white ativo" href="#" onclick="navegar(event, 'home')">Home</a>
+                    <a class="nav-link px-3 text-white" href="#" onclick="navegar(event, 'manual')">Mecânicas</a>
+                    <a class="nav-link px-3 text-white" href="#" onclick="navegar(event, 'almanaque')">Almanaque</a>
+                    <a class="nav-link px-3 text-white" href="#" onclick="navegar(event, 'torneio')">Torneios</a>
+                    <a class="nav-link px-3 text-white" href="#" onclick="navegar(event, 'quadras')">Quadras</a>
+                    <a class="nav-link px-3 text-white" href="#" onclick="navegar(event, 'placar')">Live Arena</a>
+                    <a class="nav-link px-3 text-white" href="#" onclick="navegar(event, 'contato')">Contato</a>
+                    <a class="nav-link px-3 btn btn-orange text-black ms-lg-2 px-4 font-street fw-bold text-center" href="#" onclick="navegar(event, 'login')">LOGIN</a>
+                    <span id="usuarioAtual" class="text-warning ms-lg-3 font-painel small mt-2 mt-lg-0"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="conteudo">
+        <div id="view-home" class="page-view active">
+            <header class="container text-center py-5 mt-4">
+                <h1 class="display-4 font-bloco text-white txt-dinamico">DOMINE A <br><span style="color: var(--laranja-bola)!important;">NOSSA QUADRA</span></h1>
+                <p class="lead font-painel fs-5 mx-auto mt-3 text-white txt-dinamico" style="max-width: 600px;">Controle suas partidas com precisão analítica. Painel digital robusto baseado nas regras FIBA/NBA e da cultura do asfalto.</p>
+                <a href="#" onclick="navegar(event, 'placar')" class="btn btn-orange font-street btn-lg px-4 mt-2 fs-5">ENTRAR EM JOGO</a>
+            </header>
+
+            <div class="container my-5" style="max-width: 800px;">
+                <div id="carouselStreet" class="carousel slide border border-secondary rounded overflow-hidden" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="d-flex align-items-center justify-content-center text-white text-center p-5" style="height: 350px; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800') center/cover;">
+                                <div>
+                                    <h3 class="font-street text-warning">A Cultura do Asfalto</h3>
+                                    <p class="font-painel mx-auto text-white" style="max-width: 500px;">Onde lendas urbanas nascem e o respeito é conquistado a cada posse de bola.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex align-items-center justify-content-center text-white text-center p-5" style="height: 350px; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1519766304817-4f37bda74a27?w=800') center/cover;">
+                                <div>
+                                    <h3 class="font-street text-info">Análise de Desempenho</h3>
+                                    <p class="font-painel mx-auto text-white" style="max-width: 500px;">Nosso placar digital traz as regras oficiais FIBA para a borda da sua quadra local.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselStreet" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselStreet" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Próximo</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-manual" class="page-view">
+            <main class="container my-5">
+                <h2 class="font-street text-center mb-2 text-white txt-dinamico fs-2">MANUAL DA QUADRA</h2>
+                <div class="row justify-content-center mb-4">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text font-painel label-busca">BUSCA:</span>
+                            <input type="text" id="inputBuscaManual" class="form-control font-painel input-busca" placeholder="Filtrar por nome de jogada..." onkeyup="filtrarManual()">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3" id="lista-mecanicas">
+                    <div class="col-md-4 item-mecanica">
+                        <div class="card card-quadra h-100 p-4" tabindex="0">
+                            <h3 class="font-street h4 text-info mb-2 card-titulo">01. Crossover</h3>
+                            <p class="font-painel small mb-0 text-white txt-dinamico">A mudança explosiva de direção na frente do defensor. No basquete de rua, mantenha o centro de gravidade bem baixo para garantir aderência completa no asfalto.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 item-mecanica">
+                        <div class="card card-quadra h-100 p-4" tabindex="0">
+                            <h3 class="font-street h4 text-info mb-2 card-titulo">02. Release Point</h3>
+                            <p class="font-painel small mb-0 text-white txt-dinamico">A soltura correta da bola no ponto mais alto do salto. Em quadras ao ar livre, fixe os olhos no fundo do aro para neutralizar a interferência do vento.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 item-mecanica">
+                        <div class="card card-quadra h-100 p-4" tabindex="0">
+                            <h3 class="font-street h4 text-info mb-2 card-titulo">03. Box Out</h3>
+                            <p class="font-painel small mb-0 text-white txt-dinamico">O posicionamento do corpo para proteger o rebote. Trave o quadril contra o adversário antes de saltar para isolar a área embaixo do garrafão.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 item-mecanica">
+                        <div class="card card-quadra h-100 p-4" tabindex="0">
+                            <h3 class="font-street h4 text-info mb-2 card-titulo">04. Step-Back</h3>
+                            <p class="font-painel small mb-0 text-white txt-dinamico">O movimento de criar separação imediata dando um passo rápido para trás ou para o lado antes do arremesso. Exige excelente equilíbrio e frenagem no asfalto.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 item-mecanica">
+                        <div class="card card-quadra h-100 p-4" tabindex="0">
+                            <h3 class="font-street h4 text-info mb-2 card-titulo">05. Pick and Roll</h3>
+                            <p class="font-painel small mb-0 text-white txt-dinamico">O bloqueio ofensivo clássico. Um jogador cria uma barreira no defensor e gira imediatamente em direção à cesta, abrindo uma linha de passe limpa.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 item-mecanica">
+                        <div class="card card-quadra h-100 p-4" tabindex="0">
+                            <h3 class="font-street h4 text-info mb-2 card-titulo">06. Eurostep</h3>
+                            <p class="font-painel small mb-0 text-white txt-dinamico">Passada dupla evasiva em direções opostas durante a infiltração. Ideal para ludibriar a marcação pesada no garrafão sem cometer andada.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 item-mecanica">
+                        <div class="card card-quadra h-100 p-4" tabindex="0">
+                            <h3 class="font-street h4 text-info mb-2 card-titulo">07. Fadeaway</h3>
+                            <p class="font-painel small mb-0 text-white txt-dinamico">Arremesso em salto projetando o corpo para trás longe do defensor. Uma jogada de alta complexidade que exige força no core para estabilizar a mira.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 item-mecanica">
+                        <div class="card card-quadra h-100 p-4" tabindex="0">
+                            <h3 class="font-street h4 text-info mb-2 card-titulo">08. Floater</h3>
+                            <p class="font-painel small mb-0 text-white txt-dinamico">O arremesso "flutuante" lançado com uma das mãos em uma parábola muito alta. Essencial para armadores evitarem o bloqueio dos pivôs altos na área pintada.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 item-mecanica">
+                        <div class="card card-quadra h-100 p-4" tabindex="0">
+                            <h3 class="font-street h4 text-info mb-2 card-titulo">09. Spin Move</h3>
+                            <p class="font-painel small mb-0 text-white txt-dinamico">Giro rápido de 360 graus sobre o próprio eixo enquanto bate bola. Uma das mecânicas mais plásticas para cortar o defensor em velocidade de transição.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 item-mecanica">
+                        <div class="card card-quadra h-100 p-4" tabindex="0">
+                            <h3 class="font-street h4 text-info mb-2 card-titulo">10. Pump Fake</h3>
+                            <p class="font-painel small mb-0 text-white txt-dinamico">A finta de arremesso que simula a subida para a cesta. Usada para fazer o marcador saltar antes da hora, criando espaço para infiltração ou cavando a falta técnica.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 item-mecanica">
+                        <div class="card card-quadra h-100 p-4" tabindex="0">
+                            <h3 class="font-street h4 text-info mb-2 card-titulo">11. Alley-Oop</h3>
+                            <p class="font-painel small mb-0 text-white txt-dinamico">Uma jogada em que um atleta lança a bola em direção ao aro e um companheiro de equipe salta, pega a bola no ar e faz a enterrada ou bandeja antes de tocar o chão.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 item-mecanica">
+                        <div class="card card-quadra h-100 p-4" tabindex="0">
+                            <h3 class="font-street h4 text-info mb-2 card-titulo">12. Behind-the-Back</h3>
+                            <p class="font-painel small mb-0 text-white txt-dinamico">O drible ou passe realizado por trás das costas. Uma técnica de elite usada para proteger a bola da interceptação do defensor direto mudando a trajetória sem perder velocidade.</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div id="view-almanaque" class="page-view">
+            <section class="container my-5">
+                <h2 class="font-street text-center mb-2 text-white txt-dinamico fs-2">ALMANAQUE URBANO</h2>
+                <div class="row g-4">
+                    <div class="col-lg-5">
+                        <div class="p-4 rounded azul-box mb-4">
+                            <h3 class="font-street h5 mb-3" style="color: var(--laranja-bola)!important;">Você Sabia?</h3>
+                            <ul class="list-unstyled font-painel small text-white txt-dinamico">
+                                <li class="mb-3">🏀 <strong>A Linha de 3 Pontos:</strong> Só foi adotada oficialmente pela NBA na temporada de 1979-80 para expandir o jogo de perímetro.</li>
+                                <li class="mb-3">🏙 <strong>Solo Sagrado:</strong> No Harlem (NY), a histórica quadra do <em>Rucker Park</em> consagrou lendas urbanas de rua.</li>
+                                <li class="mb-3">🔥 <strong>O Recorde Centenário:</strong> Wilt Chamberlain anotou impressionantes 100 pontos em uma única partida no ano de 1962.</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-4 rounded card-painel mb-4 text-white">
+                            <h3 class="font-street h5 mb-3" style="color: var(--laranja-bola)!important;">Dicionário do Asfalto</h3>
+                            <div class="list-group font-painel glossary-box border-secondary">
+                                <div class="bg-dark text-white p-2 border-bottom border-secondary small">⚡ <strong>Ankle Breaker:</strong> Drible tão desconcertante que faz o defensor perder o equilíbrio e cair.</div>
+                                <div class="bg-dark text-white p-2 border-bottom border-secondary small">🗑️ <strong>Airball:</strong> Aquele arremesso feio que falha bizarramente e não toca nem no aro nem na tabela.</div>
+                                <div class="bg-dark text-white p-2 border-bottom border-secondary small">🧱 <strong>Brick (Tijolo):</strong> Um arremesso muito forte que bate seco na tabela ou aro e ressalta longe.</div>
+                                <div class="bg-dark text-white p-2 border-bottom border-secondary small">🗣️ <strong>Trash Talk:</strong> Provocação psicológica saudável falada em quadra para desestabilizar o rival.</div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded card-painel text-white">
+                            <h3 class="font-street h5 mb-3" style="color: var(--laranja-bola)!important;">Maiores Campeões da NBA</h3>
+                            <div class="table-responsive">
+                                <table class="table table-dark table-striped table-hover font-painel text-center small mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Franquia</th>
+                                            <th>Títulos</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td class="fw-bold text-warning">Boston Celtics</td><td>18</td></tr>
+                                        <tr><td class="fw-bold text-info">Los Angeles Lakers</td><td>17</td></tr>
+                                        <tr><td class="fw-bold">Golden State Warriors</td><td>7</td></tr>
+                                        <tr><td class="fw-bold">Chicago Bulls</td><td>6</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <h3 class="font-street text-white txt-dinamico h5 mb-3">Ícones Mundiais do Basquete</h3>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <div class="card card-lenda p-3 h-100">
+                                    <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=500&auto=format&fit=crop&q=80" class="img-fluid rounded mb-2 card-img-atleta" alt="Michael Jordan">
+                                    <h4 class="font-bloco fs-6 text-white txt-dinamico mb-1">Michael Jordan</h4>
+                                    <span class="font-painel small d-block mb-1 text-white txt-dinamico opacity-75">#23 · Chicago Bulls</span>
+                                    <p class="font-painel small mb-0 text-white">Dono de 6 títulos invictos em Finais e uma competitividade feroz inigualável.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card card-lenda p-3 h-100">
+                                    <img src="https://images.unsplash.com/photo-1519766304817-4f37bda74a27?w=500&auto=format&fit=crop&q=80" class="img-fluid rounded mb-2 card-img-atleta" alt="Stephen Curry">
+                                    <h4 class="font-bloco fs-6 text-white txt-dinamico mb-1">Stephen Curry</h4>
+                                    <span class="font-painel small d-block mb-1 text-white txt-dinamico opacity-75">#30 · Golden State</span>
+                                    <p class="font-painel small mb-0 text-white">O maior arremessador de todos os tempos. Mudou a mecânica espacial e tática do jogo.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card card-lenda p-3 h-100">
+                                    <img src="https://images.unsplash.com/photo-1508498652134-241518f62f3f?w=500&auto=format&fit=crop&q=80" class="img-fluid rounded mb-2 card-img-atleta" alt="LeBron James">
+                                    <h4 class="font-bloco fs-6 text-white txt-dinamico mb-1">LeBron James</h4>
+                                    <span class="font-painel small d-block mb-1 text-white txt-dinamico opacity-75">#23 · LA Lakers</span>
+                                    <p class="font-painel small mb-0 text-white">"The King". Maior pontuador da história da liga americana, símbolo de longevidade física suprema.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card card-lenda p-3 h-100">
+                                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=500&auto=format&fit=crop&q=80" class="img-fluid rounded mb-2 card-img-atleta" alt="Kobe Bryant">
+                                    <h4 class="font-bloco fs-6 text-white txt-dinamico mb-1">Kobe Bryant</h4>
+                                    <span class="font-painel small d-block mb-1 text-white txt-dinamico opacity-75">#24 · LA Lakers</span>
+                                    <p class="font-painel small mb-0 text-white">Criador da mentalidade "Mamba Mentality". 5 vezes campeão e executor de arremessos letais.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card card-lenda p-3 h-100">
+                                    <img src="https://images.unsplash.com/photo-1608245318768-a8e307c37294?w=500&auto=format&fit=crop&q=80" class="img-fluid rounded mb-2 card-img-atleta" alt="Shaquille O'Neal">
+                                    <h4 class="font-bloco fs-6 text-white txt-dinamico mb-1">Shaquille O'Neal</h4>
+                                    <span class="font-painel small d-block mb-1 text-white txt-dinamico opacity-75">#34 · LA Lakers</span>
+                                    <p class="font-painel small mb-0 text-white">A força física mais devastadora do garrafão moderno. Quebrava tabelas inteiras.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card card-lenda p-3 h-100">
+                                    <img src="https://images.unsplash.com/photo-1519766304817-4f37bda74a27?w=500&auto=format&fit=crop&q=80" class="img-fluid rounded mb-2 card-img-atleta" alt="Oscar Schmidt">
+                                    <h4 class="font-bloco fs-6 text-white txt-dinamico mb-1">Oscar Schmidt</h4>
+                                    <span class="font-painel small d-block mb-1 text-white txt-dinamico opacity-75">#14 · Brasil</span>
+                                    <p class="font-painel small mb-0 text-white">O "Mão Santa". Maior cestinha da história do basquetebol mundial, lenda olímpica indiscutível.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="view-torneio" class="page-view">
+            <section class="container my-5" style="max-width: 800px;">
+                <h2 class="font-street text-center text-white mb-2 fs-2">ORGANIZADOR DE CAMPEONATOS</h2>
+                <div class="card card-painel p-4 mb-4">
+                    <div class="row g-2 font-painel">
+                        <div class="col-md-3"><input type="text" id="t1" class="form-control input-customizado" value="Crias do Asfalto"></div>
+                        <div class="col-md-3"><input type="text" id="t2" class="form-control input-customizado" value="Reis do Rucker"></div>
+                        <div class="col-md-3"><input type="text" id="t3" class="form-control input-customizado" value="Beco do Sapo 3x3"></div>
+                        <div class="col-md-3"><input type="text" id="t4" class="form-control input-customizado" value="Dunk Masters"></div>
+                    </div>
+                    <button class="btn btn-orange font-street w-100 mt-3" onclick="gerarChavesTorneio()">MONTAR CHAVES DE BRACKETS</button>
+                </div>
+                <div class="row justify-content-center text-center font-painel" id="bracket-area" style="display:none;">
+                    <div class="col-md-5 bg-dark p-3 m-2 border border-secondary rounded">
+                        <h4 class="text-info small border-bottom border-secondary pb-1">SEMIFINAL 1</h4>
+                        <div class="text-white my-1" id="b-s1">--</div>
+                    </div>
+                    <div class="col-md-5 bg-dark p-3 m-2 border border-secondary rounded">
+                        <h4 class="text-info small border-bottom border-secondary pb-1">SEMIFINAL 2</h4>
+                        <div class="text-white my-1" id="b-s2">--</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="view-quadras" class="page-view">
+            <section class="container my-5">
+                <h2 class="font-street text-center text-white mb-2 fs-2">RADAR DE QUADRAS DE RUA</h2>
+                <div class="d-flex justify-content-center gap-2 mb-4 font-painel">
+                    <button class="btn btn-outline-light btn-sm" onclick="filtrarQuadras('todas')">Todas</button>
+                    <button class="btn btn-outline-warning btn-sm" onclick="filtrarQuadras('luz')">Com Iluminação Noturna</button>
+                    <button class="btn btn-outline-info btn-sm" onclick="filtrarQuadras('rede')">Com Rede de Corrente</button>
+                </div>
+                <div class="row g-3 text-white font-painel" id="container-quadras">
+                    <div class="col-md-6 quadra-item" data-luz="sim" data-rede="sim">
+                        <div class="bg-dark p-3 border border-secondary rounded h-100">
+                            <h3 class="h5 text-warning mb-1">📍 Arena Central Park Street</h3>
+                            <p class="small opacity-75 mb-1">Status: Movimentada · Aro de Aço Maciço</p>
+                            <span class="badge bg-success me-1">Iluminação Ok</span><span class="badge bg-info">Rede de Corrente</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 quadra-item" data-luz="nao" data-rede="sim">
+                        <div class="bg-dark p-3 border border-secondary rounded h-100">
+                            <h3 class="h5 text-warning mb-1">📍 Quadra do Beco da Borracha</h3>
+                            <p class="small opacity-75 mb-1">Status: Livre · Asfalto Rugoso Clássico</p>
+                            <span class="badge bg-danger me-1">Sem Luz Noturna</span><span class="badge bg-info">Rede de Corrente</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 quadra-item" data-luz="sim" data-rede="nao">
+                        <div class="bg-dark p-3 border border-secondary rounded h-100">
+                            <h3 class="h5 text-warning mb-1">📍 Parque Urbano Leste</h3>
+                            <p class="small opacity-75 mb-1">Status: Moderada · Aro Flexível</p>
+                            <span class="badge bg-success me-1">Iluminação Ok</span><span class="badge bg-secondary">Rede de Nylon</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 quadra-item" data-luz="nao" data-rede="nao">
+                        <div class="bg-dark p-3 border border-secondary rounded h-100">
+                            <h3 class="h5 text-warning mb-1">📍 Viaduto da Quebrada</h3>
+                            <p class="small opacity-75 mb-1">Status: Intensa · Tabela de Madeira Antiga</p>
+                            <span class="badge bg-danger me-1">Sem Luz Noturna</span><span class="badge bg-secondary">Sem Rede</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="view-placar" class="page-view">
+            <section class="container my-5">
+                <div class="row justify-content-center g-4">
+                    <div class="col-lg-9">
+                        <div class="scoreboard font-painel text-center">
+                            <div class="row mb-4 align-items-center">
+                                <div class="col-4">
+                                    <span class="small d-block fw-bold text-white">QUARTO</span>
+                                    <span class="fs-2 text-white font-bloco" id="displayQuarto">1</span>
+                                    <button class="btn btn-sm btn-outline-light btn-placar-cmd d-block mx-auto mt-1" onclick="mudarQuarto()">MUDAR</button>
+                                </div>
+                                <div class="col-4">
+                                    <div class="led-tempo" id="cronometro">12:00</div>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn btn-success btn-sm fw-bold mb-1 w-70" onclick="alert('Cronômetro Iniciado!')">START</button><br>
+                                    <button class="btn btn-outline-warning btn-sm fw-bold w-70" onclick="resetGeral()">RESET</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5">
+                                    <h3 class="font-street text-white fs-2">HOME</h3>
+                                    <div class="led-pts my-2" id="ptsHome">00</div>
+                                    <button class="btn btn-action btn-sm px-2 text-white border" onclick="addPts('home',1)">+1</button>
+                                    <button class="btn btn-action btn-sm px-2 text-white border" onclick="addPts('home',2)">+2</button>
+                                </div>
+                                <div class="col-2 align-self-center font-bloco text-white fs-4 opacity-50">VS</div>
+                                <div class="col-5">
+                                    <h3 class="font-street text-white fs-2">AWAY</h3>
+                                    <div class="led-pts my-2" id="ptsAway">00</div>
+                                    <button class="btn btn-action btn-sm px-2 text-white border" onclick="addPts('away',1)">+1</button>
+                                    <button class="btn btn-action btn-sm px-2 text-white border" onclick="addPts('away',2)">+2</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-painel mt-4 p-4 text-start">
+                            <h3 class="font-street text-center text-white fs-4 mb-3">HISTÓRICO DE PARTIDAS TERMINADAS</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="view-contato" class="page-view">
+            <section class="container my-5" style="max-width: 600px;">
+                <h2 class="font-street text-center text-white mb-2 fs-2">PROCURANDO ADVERSÁRIO</h2>
+                <p class="text-center font-painel text-white opacity-75 small mb-4">Insira sua ficha para que outros atletas e squads possam te desafiar para o asfalto.</p>
+                <div class="card card-painel p-4 font-painel text-white">
+                    <form onsubmit="alert('Desafio publicado no radar de procuras!'); return false;">
+                        <div class="mb-3">
+                            <label class="form-label">Nome / Vulgo das Quadras:</label>
+                            <input type="text" class="form-control bg-dark text-white border-secondary" placeholder="Ex: Bruninho do Crossover" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Seu Nível de Habilidade:</label>
+                            <select class="form-select bg-dark text-white border-secondary" required>
+                                <option value="" disabled selected>Escolha sua categoria...</option>
+                                <option value="iniciante">Casual / Iniciante (Dribles básicos)</option>
+                                <option value="intermediario">Intermediário (Garante no rebote e arremesso)</option>
+                                <option value="pro">Nível Pro / King da Quadra (Amador Avançado/Federado)</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tipo de Desafio Favorito:</label>
+                            <select class="form-select bg-dark text-white border-secondary" required>
+                                <option value="" disabled selected>Qual jogo você encara?</option>
+                                <option value="1v1">X1 Puro (1 contra 1 - Sem choro)</option>
+                                <option value="3x3">Meia Quadra Street (3 contra 3 - Regra FIBA)</option>
+                                <option value="5v5">Quadra Inteira (5 contra 5 - Jogo Tradicional)</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Mensagem Adicional / Local de Preferência:</label>
+                            <textarea class="form-control bg-dark text-white border-secondary" rows="3" placeholder="Ex: Jogo sempre na Arena Central a partir das 19h. Brota!" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-orange font-street w-100">PUBLICAR MEU CARD DE DESAFIO</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+        <div id="view-login" class="page-view">
+            <section class="container my-5" style="max-width: 400px;">
+                <h2 class="font-street text-center text-white mb-4 fs-2">CONECTAR ARENA</h2>
+                <div class="card card-painel p-4 font-painel text-white">
+                    <form onsubmit="efetuarLogin(event)">
+                        <div class="mb-3">
+                            <label class="form-label">E-mail do Atleta:</label>
+                            <input type="email" id="inputEmail" class="form-control bg-dark text-white border-secondary" placeholder="atleta@dunkhub.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Senha de Acesso:</label>
+                            <input type="password" id="inputPassword" class="form-control bg-dark text-white border-secondary" placeholder="******" required>
+                        </div>
+                        <button type="submit" class="btn btn-orange font-street w-100">ENTRAR EM JOGO</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
