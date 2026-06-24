@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DunkHub - Arena Streetball</title>
-    <link class="icon" href="icon.png">
+    <link rel="icon" href="icon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Rubik+Mono+One&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -54,9 +54,33 @@
             </header>
 
             <div class="container my-5" style="max-width: 800px;">
-                <div class="p-5 text-center text-white rounded border border-secondary bg-dark">
-                    <h3 class="font-street text-warning mb-3">A Cultura do Asfalto & Análise de Desempenho</h3>
-                    <p class="font-painel mx-auto text-white mb-0" style="max-width: 600px;">Onde lendas urbanas nascem e o respeito é conquistado a cada posse de bola. Nosso placar digital traz as regras oficiais FIBA para a borda da sua quadra local.</p>
+                <div id="carouselStreet" class="carousel slide border border-secondary rounded overflow-hidden" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="d-flex align-items-center justify-content-center text-white text-center p-5" style="height: 350px; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800') center/cover;">
+                                <div>
+                                    <h3 class="font-street text-warning">A Cultura do Asfalto</h3>
+                                    <p class="font-painel mx-auto text-white" style="max-width: 500px;">Onde lendas urbanas nascem e o respeito é conquistado a cada posse de bola.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex align-items-center justify-content-center text-white text-center p-5" style="height: 350px; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1519766304817-4f37bda74a27?w=800') center/cover;">
+                                <div>
+                                    <h3 class="font-street text-info">Análise de Desempenho</h3>
+                                    <p class="font-painel mx-auto text-white" style="max-width: 500px;">Nosso placar digital traz as regras oficiais FIBA para a borda da sua quadra local.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselStreet" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselStreet" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Próximo</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -200,6 +224,7 @@
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <div class="card card-lenda p-3 h-100">
+                                    <img src="https://static.wikia.nocookie.net/nbastreet/images/9/97/FDB1BF72-3F75-446F-B4F2-000331AE638B.jpeg/revision/latest/thumbnail/width/360/height/360?cb=20210419024456" class="img-fluid rounded mb-2 card-img-atleta" alt="Michael Jordan">
                                     <h4 class="font-bloco fs-6 text-white txt-dinamico mb-1">Michael Jordan</h4>
                                     <span class="font-painel small d-block mb-1 text-white txt-dinamico opacity-75">#23 · Chicago Bulls</span>
                                     <p class="font-painel small mb-0 text-white">Dono de 6 títulos invictos em Finais e uma competitividade feroz inigualável.</p>
@@ -207,6 +232,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="card card-lenda p-3 h-100">
+                                    <img src="https://res.cloudinary.com/usopc-prod/image/upload/ar_0.8,c_auto,g_auto,w_1305/q_auto/f_auto/v1/TeamUSA%20Assets/Migration/Athlete%20Profiles/Stephen%20Curry%20997380/Curry_s_bio_997380" class="img-fluid rounded mb-2 card-img-atleta" alt="Stephen Curry">
                                     <h4 class="font-bloco fs-6 text-white txt-dinamico mb-1">Stephen Curry</h4>
                                     <span class="font-painel small d-block mb-1 text-white txt-dinamico opacity-75">#30 · Golden State</span>
                                     <p class="font-painel small mb-0 text-white">O maior arremessador de todos os tempos. Mudou a mecânica espacial e tática do jogo.</p>
@@ -214,6 +240,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="card card-lenda p-3 h-100">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXIwfSVPIqLkle2T5ny_3OiUnEjlL2rtswdQ&s" class="img-fluid rounded mb-2 card-img-atleta" alt="LeBron James">
                                     <h4 class="font-bloco fs-6 text-white txt-dinamico mb-1">LeBron James</h4>
                                     <span class="font-painel small d-block mb-1 text-white txt-dinamico opacity-75">#23 · LA Lakers</span>
                                     <p class="font-painel small mb-0 text-white">"The King". Maior pontuador da história da liga americana, símbolo de longevidade física suprema.</p>
@@ -221,6 +248,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="card card-lenda p-3 h-100">
+                                    <img src="https://s2-valor.glbimg.com/AxTcEFHph5UiYEaeVXKnkQuV0k0=/0x0:2020x3016/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2020/B/j/ef8kSBSMqSxP7SEWVtCA/kobe-bryant-8.jpg" class="img-fluid rounded mb-2 card-img-atleta" alt="Kobe Bryant">
                                     <h4 class="font-bloco fs-6 text-white txt-dinamico mb-1">Kobe Bryant</h4>
                                     <span class="font-painel small d-block mb-1 text-white txt-dinamico opacity-75">#24 · LA Lakers</span>
                                     <p class="font-painel small mb-0 text-white">Criador da mentalidade "Mamba Mentality". 5 vezes campeão e executor de arremessos letais.</p>
@@ -228,6 +256,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="card card-lenda p-3 h-100">
+                                    <img src="https://static.wikia.nocookie.net/nba-basketball/images/b/b0/Shaquille_O%27Neal.jpeg/revision/latest?cb=20160709122018" class="img-fluid rounded mb-2 card-img-atleta" alt="Shaquille O'Neal">
                                     <h4 class="font-bloco fs-6 text-white txt-dinamico mb-1">Shaquille O'Neal</h4>
                                     <span class="font-painel small d-block mb-1 text-white txt-dinamico opacity-75">#34 · LA Lakers</span>
                                     <p class="font-painel small mb-0 text-white">A força física mais devastadora do garrafão moderno. Quebrava tabelas inteiras.</p>
@@ -235,6 +264,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="card card-lenda p-3 h-100">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYrQ8UcugiA0XMcZzhiHIhFU9aHlwGhYlsQg&s" class="img-fluid rounded mb-2 card-img-atleta" alt="Oscar Schmidt">
                                     <h4 class="font-bloco fs-6 text-white txt-dinamico mb-1">Oscar Schmidt</h4>
                                     <span class="font-painel small d-block mb-1 text-white txt-dinamico opacity-75">#14 · Brasil</span>
                                     <p class="font-painel small mb-0 text-white">O "Mão Santa". Maior cestinha da história do basquetebol mundial, lenda olímpica indiscutível.</p>
@@ -327,7 +357,7 @@
                                     <div class="led-tempo" id="cronometro">12:00</div>
                                 </div>
                                 <div class="col-4">
-                                    <button id="btnStartStop" class="btn btn-success btn-sm fw-bold mb-1 w-70" onclick="toggleCronometro()">START</button><br>
+                                    <button class="btn btn-success btn-sm fw-bold mb-1 w-70" onclick="alert('Cronômetro Iniciado!')">START</button><br>
                                     <button class="btn btn-outline-warning btn-sm fw-bold w-70" onclick="resetGeral()">RESET</button>
                                 </div>
                             </div>
@@ -335,15 +365,35 @@
                                 <div class="col-5">
                                     <h3 class="font-street text-white fs-2">HOME</h3>
                                     <div class="led-pts my-2" id="ptsHome">00</div>
-                                    <button class="btn btn-action btn-sm px-2 text-white border" onclick="addPts('home',1)">+1</button>
-                                    <button class="btn btn-action btn-sm px-2 text-white border" onclick="addPts('home',2)">+2</button>
+                                    <div class="mb-3">
+                                        <button class="btn btn-action btn-sm px-2 text-white border" onclick="addPts('home',1)">+1</button>
+                                        <button class="btn btn-action btn-sm px-2 text-white border" onclick="addPts('home',2)">+2</button>
+                                        <button class="btn btn-action btn-sm px-2 text-white border" onclick="addPts('home',3)">+3</button>
+                                        <button class="btn btn-danger btn-sm px-2 text-white border" onclick="addPts('home',-1)">-1</button>
+                                    </div>
+                                    <div class="mt-2 border-top border-secondary pt-2">
+                                        <span class="small d-block fw-bold text-secondary">FALTAS</span>
+                                        <span class="fs-4 text-warning font-bloco d-block my-1" id="faltasHome">0</span>
+                                        <button class="btn btn-xs btn-outline-danger py-0 px-2" style="font-size:12px;" onclick="addFalta('home',1)">+ FALTA</button>
+                                        <button class="btn btn-xs btn-outline-secondary py-0 px-2" style="font-size:12px;" onclick="addFalta('home',-1)">-</button>
+                                    </div>
                                 </div>
                                 <div class="col-2 align-self-center font-bloco text-white fs-4 opacity-50">VS</div>
                                 <div class="col-5">
                                     <h3 class="font-street text-white fs-2">AWAY</h3>
                                     <div class="led-pts my-2" id="ptsAway">00</div>
-                                    <button class="btn btn-action btn-sm px-2 text-white border" onclick="addPts('away',1)">+1</button>
-                                    <button class="btn btn-action btn-sm px-2 text-white border" onclick="addPts('away',2)">+2</button>
+                                    <div class="mb-3">
+                                        <button class="btn btn-action btn-sm px-2 text-white border" onclick="addPts('away',1)">+1</button>
+                                        <button class="btn btn-action btn-sm px-2 text-white border" onclick="addPts('away',2)">+2</button>
+                                        <button class="btn btn-action btn-sm px-2 text-white border" onclick="addPts('away',3)">+3</button>
+                                        <button class="btn btn-danger btn-sm px-2 text-white border" onclick="addPts('away',-1)">-1</button>
+                                    </div>
+                                    <div class="mt-2 border-top border-secondary pt-2">
+                                        <span class="small d-block fw-bold text-secondary">FALTAS</span>
+                                        <span class="fs-4 text-warning font-bloco d-block my-1" id="faltasAway">0</span>
+                                        <button class="btn btn-xs btn-outline-danger py-0 px-2" style="font-size:12px;" onclick="addFalta('away',1)">+ FALTA</button>
+                                        <button class="btn btn-xs btn-outline-secondary py-0 px-2" style="font-size:12px;" onclick="addFalta('away',-1)">-</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -416,59 +466,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
-    <script>
-        // Lógica injetada estritamente para o cronômetro funcionar sem alterar o arquivo externo script.js
-        let tempoRestante = 12 * 60; 
-        let intervaloCronometro = null;
-
-        function atualizarDisplayCronometro() {
-            let minutos = Math.floor(tempoRestante / 60);
-            let segundos = tempoRestante % 60;
-            document.getElementById('cronometro').textContent = 
-                (minutos < 10 ? '0' : '') + minutos + ':' + (segundos < 10 ? '0' : '') + segundos;
-        }
-
-        function toggleCronometro() {
-            let btn = document.getElementById('btnStartStop');
-            if (intervaloCronometro) {
-                clearInterval(intervaloCronometro);
-                intervaloCronometro = null;
-                btn.textContent = 'START';
-                btn.className = 'btn btn-success btn-sm fw-bold mb-1 w-70';
-            } else {
-                btn.textContent = 'PAUSE';
-                btn.className = 'btn btn-danger btn-sm fw-bold mb-1 w-70';
-                intervaloCronometro = setInterval(function() {
-                    if (tempoRestante > 0) {
-                        tempoRestante--;
-                        atualizarDisplayCronometro();
-                    } else {
-                        clearInterval(intervaloCronometro);
-                        intervaloCronometro = null;
-                        btn.textContent = 'START';
-                        btn.className = 'btn btn-success btn-sm fw-bold mb-1 w-70';
-                        alert('Fim de jogo!');
-                    }
-                }, 1000);
-            }
-        }
-
-        // Intercepta e complementa o resetGeral existente se houver, garantindo o reset do cronômetro local
-        let funcaoResetOriginal = window.resetGeral;
-        window.resetGeral = function() {
-            if (typeof funcaoResetOriginal === 'function') {
-                funcaoResetOriginal();
-            }
-            if (intervaloCronometro) {
-                clearInterval(intervaloCronometro);
-                intervaloCronometro = null;
-            }
-            tempoRestante = 12 * 60;
-            atualizarDisplayCronometro();
-            let btn = document.getElementById('btnStartStop');
-            btn.textContent = 'START';
-            btn.className = 'btn btn-success btn-sm fw-bold mb-1 w-70';
-        };
-    </script>
 </body>
 </html>
